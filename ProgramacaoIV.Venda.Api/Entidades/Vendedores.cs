@@ -8,7 +8,7 @@ public class Vendedores : AbstractEntity
     public string Email { get; set; }
     public DateTime DtCriacao { get; set; }
     public DateTime? DtAtualizacao { get; set; }
-    public ICollection<Transacao> Transacoes { get; set; }
+    public ICollection<Transacao> Transacoes { get; set; } = new List<Transacao>();
 
     private Vendedores() : base() { }
 
@@ -18,6 +18,7 @@ public class Vendedores : AbstractEntity
         Email = email;
         IsAtivo = isAtivo;
         DtCriacao = DateTime.UtcNow;
+        Transacoes = new List<Transacao>();
     }
 
     public void Atualizar(string nome, string email)
